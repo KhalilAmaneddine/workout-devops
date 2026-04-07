@@ -24,3 +24,5 @@ jobs:
 
     - name: Build Docker image
       run: docker build -t workout-app .
+    - name: Show files
+      run: ls -la

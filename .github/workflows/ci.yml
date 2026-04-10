@@ -26,7 +26,15 @@ jobs:
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
     - name: Build Docker image
-      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/workout-app .
+      run: docker build -t ${{ secrets.DOCKER_USERNAME }}/workout-app:${{ github.sha }} .
 
     - name: Push Docker image
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/workout-app
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/workout-app:${{ github.sha }}
+
+    - name: Tag latest
+      run: |
+        docker tag ${{ secrets.DOCKER_USERNAME }}/workout-app:${{ github.sha }} \
+                   ${{ secrets.DOCKER_USERNAME }}/workout-app:latest
+
+    - name: Push latest
+      run: docker push ${{ secrets.DOCKER_USERNAME }}/workout-app:latest

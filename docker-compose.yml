@@ -1,5 +1,4 @@
 services:
-
   postgres:
     image: postgres:15
     container_name: workout-db
@@ -13,7 +12,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   app:
-    build: .
+    image: ${APP_IMAGE}
     container_name: workout-app
     depends_on:
       - postgres

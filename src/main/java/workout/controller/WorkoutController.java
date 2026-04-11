@@ -45,6 +45,6 @@ public class WorkoutController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Hello Dude!";
+        return "Hello Dude, new Text!";
     }
 }

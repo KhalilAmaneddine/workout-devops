@@ -3,9 +3,9 @@ package workout.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController("/hello")
 public class HelloController {
-    @GetMapping("/hello")
+    @GetMapping()
     public String hello() {
         return "Hello Dude!";
     }

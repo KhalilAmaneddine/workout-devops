@@ -43,8 +43,8 @@ public class WorkoutController {
         return ResponseEntity.ok( "Workout deleted");
     }
 
-    @GetMapping("/hello")
+    /*@GetMapping("/hello")
     public String hello() {
         return "Hello Dude, new Text!";
-    }
+    }*/
 }
